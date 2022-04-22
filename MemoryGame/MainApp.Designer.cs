@@ -28,74 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.greenBtn = new System.Windows.Forms.Button();
-            this.redBtn = new System.Windows.Forms.Button();
-            this.blueBtn = new System.Windows.Forms.Button();
-            this.yelBtn = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // greenBtn
+            // menuStrip1
             // 
-            this.greenBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.greenBtn.Location = new System.Drawing.Point(58, 28);
-            this.greenBtn.Name = "greenBtn";
-            this.greenBtn.Size = new System.Drawing.Size(62, 56);
-            this.greenBtn.TabIndex = 0;
-            this.greenBtn.Text = "Green";
-            this.greenBtn.UseVisualStyleBackColor = true;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // redBtn
+            // contextMenuStrip1
             // 
-            this.redBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.redBtn.Location = new System.Drawing.Point(154, 28);
-            this.redBtn.Name = "redBtn";
-            this.redBtn.Size = new System.Drawing.Size(62, 56);
-            this.redBtn.TabIndex = 1;
-            this.redBtn.Text = "Red";
-            this.redBtn.UseVisualStyleBackColor = true;
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // blueBtn
+            // toolStripMenuItem1
             // 
-            this.blueBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.blueBtn.Location = new System.Drawing.Point(154, 103);
-            this.blueBtn.Name = "blueBtn";
-            this.blueBtn.Size = new System.Drawing.Size(62, 56);
-            this.blueBtn.TabIndex = 2;
-            this.blueBtn.Text = "Blue";
-            this.blueBtn.UseVisualStyleBackColor = true;
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(41, 20);
+            this.toolStripMenuItem1.Text = "App";
             // 
-            // yelBtn
+            // helpToolStripMenuItem
             // 
-            this.yelBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.yelBtn.Location = new System.Drawing.Point(58, 103);
-            this.yelBtn.Name = "yelBtn";
-            this.yelBtn.Size = new System.Drawing.Size(62, 56);
-            this.yelBtn.TabIndex = 3;
-            this.yelBtn.Text = "Yellow";
-            this.yelBtn.UseVisualStyleBackColor = true;
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
             // 
             // MainApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 217);
-            this.Controls.Add(this.yelBtn);
-            this.Controls.Add(this.blueBtn);
-            this.Controls.Add(this.redBtn);
-            this.Controls.Add(this.greenBtn);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.MinimumSize = new System.Drawing.Size(200, 200);
             this.Name = "MainApp";
             this.Text = "MainApp";
             this.Load += new System.EventHandler(this.MainApp_Load);
             this.SizeChanged += new System.EventHandler(this.MainApp_SizeChanged);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button greenBtn;
-        private System.Windows.Forms.Button redBtn;
-        private System.Windows.Forms.Button blueBtn;
-        private System.Windows.Forms.Button yelBtn;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

@@ -17,44 +17,26 @@ namespace MemoryGame
             InitializeComponent();
         }
 
+        // https://www.c-sharpcorner.com/article/developing-mdi-applications-in-C-Sharp/
+
         private void MainApp_Load(object sender, EventArgs e)
         {
-            // Set appropriate size for form
-            this.Size = new Size(500, 500);
+            this.IsMdiContainer = true;
 
-            this.MaximumSize = new Size(1000, 1000);
-            this.MinimumSize = new Size(200, 200);
+            helpScreen hs = new helpScreen();
+            hs.MdiParent = this;
+            hs.Size = new Size(this.Width / 2, this.Height / 2);
+            hs.Show();
 
-            // Anchor buttons to appropriate side
-            redBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            yelBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            blueBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            updateBtns();
+            gameScreen gs = new gameScreen();
+            gs.MdiParent = this;
+            gs.Size = this.Size;
+            //gs.Show();
         }
 
         private void MainApp_SizeChanged(object sender, EventArgs e)
         {
-            updateBtns();
-        }
-
-        private void updateBtns()
-        {
-            // Resize green button
-            greenBtn.Location = new Point(0, 0);
-            greenBtn.Width = this.Width / 2;
-            greenBtn.Height = this.Height / 2 - 10; // Compensate for some unidentical buttons (unspecified reason)
-
-            redBtn.Location = new Point(this.Width / 2, 0);
-            redBtn.Width = this.Width / 2;
-            redBtn.Height = this.Height / 2 - 10;
-
-            yelBtn.Location = new Point(0, this.Height / 2 - 10);
-            yelBtn.Width = this.Width / 2;
-            yelBtn.Height = this.Height / 2 - 10;
-                
-            blueBtn.Location = new Point(this.Width / 2, this.Height / 2 - 10);
-            blueBtn.Width = this.Width / 2;
-            blueBtn.Height = this.Height / 2 - 10;
+            
         }
     }
 }
