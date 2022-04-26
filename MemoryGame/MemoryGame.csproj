@@ -46,17 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gameScreen.cs">
+    <Compile Include="Functions.cs" />
+    <Compile Include="GameScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gameScreen.Designer.cs">
-      <DependentUpon>gameScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="helpScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="helpScreen.Designer.cs">
-      <DependentUpon>helpScreen.cs</DependentUpon>
+    <Compile Include="GameScreen.Designer.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="MainApp.cs">
       <SubType>Form</SubType>
@@ -66,11 +61,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="gameScreen.resx">
-      <DependentUpon>gameScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="helpScreen.resx">
-      <DependentUpon>helpScreen.cs</DependentUpon>
+    <EmbeddedResource Include="GameScreen.resx">
+      <DependentUpon>GameScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainApp.resx">
       <DependentUpon>MainApp.cs</DependentUpon>
