@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -36,6 +37,14 @@ namespace MemoryGame
         private void MainApp_SizeChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            gs.Invoke(new MethodInvoker(delegate()
+            { 
+                    gs.startGame();
+            }));
         }
     }
 }
