@@ -6,9 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace MemoryGame
 {
@@ -28,37 +26,33 @@ namespace MemoryGame
             updateBtns();
         }
 
-        private List<Color> pattern = new List<Color>();
-        private List<Color> userPattern = new List<Color>();
-        private readonly Color[] colors =
-            {Functions.greenColor, Functions.redColor, Functions.yellowColor, Functions.blueColor};
+
 
         public void startGame()
         {
-            // Choose random color
-            Color color = new Color();
+
+        }
+
+        public void generateColor(ref List<Color> pattern, ref List<Color> userPattern)
+        {
+            Color[] colors =
+                {Functions.greenColor, Functions.redColor, Functions.yellowColor, Functions.blueColor};
+
             Random rdm = new Random();
-            for (int i = 0; i < 10; i++)
+            switch (rdm.Next(4))
             {
-                switch (rdm.Next(1, 4))
-                {
-                    case 1:
-                        color = colors[0];
-                        pattern.Add(color);
-                        break;
-                    case 2:
-                        color = colors[1];
-                        pattern.Add(color);
-                        break;
-                    case 3:
-                        color = colors[2];
-                        pattern.Add(color);
-                        break;
-                    case 4:
-                        color = colors[3];
-                        pattern.Add(color);
-                        break;
-                }
+                case 0:
+                    pattern.Add(colors[0]);
+                    break;
+                case 1:
+                    pattern.Add(colors[1]);
+                    break;
+                case 2:
+                    pattern.Add(colors[2]);
+                    break;
+                case 3:
+                    pattern.Add(colors[3]);
+                    break;
             }
 
             // Change color to white
@@ -71,95 +65,55 @@ namespace MemoryGame
             // Display the color pattern to the user
             foreach (Color col in pattern)
             {
-                if (col == colors[0])
+                if (col == colors[0])  // Green button
                 {
                     greenBtn.BackColor = colors[0];
+                    greenBtn.Update();
                     Thread.Sleep(1000);
+
                     greenBtn.BackColor = Color.White;
+                    greenBtn.Update();
+                    Thread.Sleep(1000);
                 }
-                else if (col == colors[1])
+                else if (col == colors[1]) // Red button
                 {
                     redBtn.BackColor = colors[1];
+                    redBtn.Update();
                     Thread.Sleep(1000);
-                    greenBtn.BackColor = Color.White;
+
+                    redBtn.BackColor = Color.White;
+                    redBtn.Update();
+                    Thread.Sleep(1000);
                 }
-                else if (col == colors[2])
+                else if (col == colors[2]) // Yellow button
                 {
                     yelBtn.BackColor = colors[2];
+                    yelBtn.Update();
                     Thread.Sleep(1000);
+
                     yelBtn.BackColor = Color.White;
+                    yelBtn.Update();
+                    Thread.Sleep(1000);
                 }
-                else if (col == colors[3])
+                else if (col == colors[3]) // Blue button
                 {
                     blueBtn.BackColor = colors[3];
+                    blueBtn.Update();
                     Thread.Sleep(1000);
+
                     blueBtn.BackColor = Color.White;
+                    blueBtn.Update();
+                    Thread.Sleep(1000);
                 }
-                Thread.Sleep(1000);
+                
             }
 
             // Restore Color
-
-
+            greenBtn.BackColor = colors[0];
+            redBtn.BackColor = colors[1];
+            yelBtn.BackColor = colors[2];
+            blueBtn.BackColor = colors[3];
         }
-        /*
-        public void startGame()
-        {
-            
-
-
-            bool gameEnd = false;
-            while (!gameEnd)
-            {
-                // Choose random color
-                Color color;
-                switch (new Random().Next(1, 4))
-                {
-                    case 1:
-                        color = colors[0];
-                        pattern.Append(color);
-                        break;
-                    case 2:
-                        color = colors[1];
-                        pattern.Append(color);
-                        break;
-                    case 3:
-                        color = colors[2];
-                        pattern.Append(color);
-                        break;
-                    case 4:
-                        color = colors[3];
-                        pattern.Append(color);
-                        break;
-                    default:
-                        break;
-                }
-
-                // Disable button input
-                foreach (Button btn in new[] {greenBtn, redBtn, yelBtn, blueBtn})
-                {
-                    btn.BackColor = Color.White;
-                    btn.Update();
-                }
-                
-                // Display the color pattern to the user
-                foreach (Color col in pattern)
-                {
-                    if (col.Equals(colors[0])) greenBtn.BackColor = colors[0];
-                    else if (col.Equals(colors[1])) redBtn.BackColor = colors[1];
-                    else if (col.Equals(colors[2])) yelBtn.BackColor = colors[2];
-                    else if (col.Equals(colors[3])) blueBtn.BackColor = colors[3];
-
-                    Thread.Sleep(500);
-                }
-            }
-        }
-        */
-
-
-
-
-
 
         // Callback function to update buttons
         private void GameScreen_SizeChanged(object sender, EventArgs e)

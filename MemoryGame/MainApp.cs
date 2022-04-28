@@ -31,6 +31,7 @@ namespace MemoryGame
 
             gs.MdiParent = this;
             gs.Size = new Size(this.Width / 2, this.Height / 2);
+            gs.Location = new Point(this.Width / 2, this.Height / 2);
             gs.Show();
         }
 
@@ -41,10 +42,17 @@ namespace MemoryGame
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            gs.Invoke(new MethodInvoker(delegate()
-            { 
-                    gs.startGame();
-            }));
+            List<Color> pattern = new List<Color>();
+            List<Color> userPattern = new List<Color>();
+            Thread thread = new Thread(() =>
+            {
+                gs.Invoke(new MethodInvoker(delegate
+                {
+                    gs.generateColor(ref pattern, ref userPattern);
+
+                }));
+            });
+            thread.Start();
         }
     }
 }
