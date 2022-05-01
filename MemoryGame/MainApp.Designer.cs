@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // button1
@@ -52,7 +53,6 @@
             this.Name = "MainApp";
             this.Text = "MainApp";
             this.Load += new System.EventHandler(this.MainApp_Load);
-            this.SizeChanged += new System.EventHandler(this.MainApp_SizeChanged);
             this.ResumeLayout(false);
 
         }
@@ -60,5 +60,6 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

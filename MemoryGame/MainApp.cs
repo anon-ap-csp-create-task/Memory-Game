@@ -20,39 +20,33 @@ namespace MemoryGame
             InitializeComponent();
         }
 
-        // https://www.c-sharpcorner.com/article/developing-mdi-applications-in-C-Sharp/
 
-        private readonly GameScreen gs = new GameScreen();
-        public bool GameInProgress = true;
-
+        public static readonly GameScreen gs = new GameScreen();
+        public static readonly GamePanel panel = new GamePanel();
+        private static readonly Functions func = new Functions();
         private void MainApp_Load(object sender, EventArgs e)
         {
             this.IsMdiContainer = true;
 
+            // Show "GameScreen.cs" and resize programmatically
             gs.MdiParent = this;
-            gs.Size = new Size(this.Width / 2, this.Height / 2);
-            gs.Location = new Point(this.Width / 2, this.Height / 2);
+            gs.Size = new Size(this.Width / 2 + 40, this.Height / 2 + 40);
             gs.Show();
-        }
+            gs.Location = new Point(this.Width / 4 + 20, 0);
 
-        private void MainApp_SizeChanged(object sender, EventArgs e)
-        {
+            // Show "GamePanel.cs" and resize programmatically
+            panel.MdiParent = this;
+            panel.Size = new Size(this.Width / 4 + 20, this.Height - 45);
+            panel.Show();
+            panel.Location = new Point(0, 0);
 
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            List<Color> pattern = new List<Color>();
-            List<Color> userPattern = new List<Color>();
-            Thread thread = new Thread(() =>
-            {
-                gs.Invoke(new MethodInvoker(delegate
-                {
-                    gs.generateColor(ref pattern, ref userPattern);
-
-                }));
-            });
-            thread.Start();
+            func.startGame();
         }
+
+
     }
 }

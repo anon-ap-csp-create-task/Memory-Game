@@ -48,6 +48,7 @@
             this.greenBtn.TabIndex = 0;
             this.greenBtn.Text = "Green";
             this.greenBtn.UseVisualStyleBackColor = false;
+            this.greenBtn.Click += new System.EventHandler(this.greenBtn_Click);
             // 
             // redBtn
             // 
@@ -61,6 +62,7 @@
             this.redBtn.TabIndex = 1;
             this.redBtn.Text = "Red";
             this.redBtn.UseVisualStyleBackColor = false;
+            this.redBtn.Click += new System.EventHandler(this.redBtn_Click);
             // 
             // blueBtn
             // 
@@ -74,6 +76,7 @@
             this.blueBtn.TabIndex = 2;
             this.blueBtn.Text = "Blue";
             this.blueBtn.UseVisualStyleBackColor = false;
+            this.blueBtn.Click += new System.EventHandler(this.blueBtn_Click);
             // 
             // yelBtn
             // 
@@ -87,6 +90,7 @@
             this.yelBtn.TabIndex = 3;
             this.yelBtn.Text = "Yellow";
             this.yelBtn.UseVisualStyleBackColor = false;
+            this.yelBtn.Click += new System.EventHandler(this.yelBtn_Click);
             // 
             // GameScreen
             // 
@@ -96,8 +100,8 @@
             this.Controls.Add(this.blueBtn);
             this.Controls.Add(this.redBtn);
             this.Controls.Add(this.greenBtn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GameScreen";
             this.Text = "Memory Game";
