@@ -14,6 +14,14 @@ namespace MemoryGame
         public void startGame()
         {
             Data.GameInProgress = true;
+            Data.pattern.Clear();
+            Data.userPattern.Clear();
+
+            MainApp.panel.Invoke(new MethodInvoker(delegate()
+            {
+                MainApp.panel.updateScoreDisplay();
+                MainApp.panel.startGame();
+            }));
 
             MainApp.gs.Invoke(new MethodInvoker(delegate ()
             {
@@ -68,9 +76,14 @@ namespace MemoryGame
         {
             // If score is greater than best score, update best score to score
             if (Data.score > Data.bestScore) Data.bestScore = Data.score;
+            MainApp.panel.Invoke(new MethodInvoker(delegate ()
+            {
+                MainApp.panel.updateScoreDisplay();
+                MainApp.panel.endGame();
+            }));
 
-            
-            throw new Exception();
+            Data.pattern.Clear();
+            Data.score = 0;
         }
 
     }

@@ -87,7 +87,11 @@ namespace MemoryGame
             if (MessageBox.Show(
                     "A game is still in progress!\nDo you wish to leave the game and lose unsaved progress?",
                     "Warning",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) != DialogResult.No) return;
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) != DialogResult.No)
+            {
+                Functions func = new Functions();
+                func.endGame();
+            }
             e.Cancel = true;
         }
 
@@ -209,6 +213,75 @@ namespace MemoryGame
             // Allow user input
             input_allowed(true);
 
+
+            // Restore Color
+            greenBtn.BackColor = colors[0];
+            redBtn.BackColor = colors[1];
+            yelBtn.BackColor = colors[2];
+            blueBtn.BackColor = colors[3];
+        }
+
+        /// <summary>
+        /// Show user input replay
+        /// </summary>
+        /// <param name="pattern"></param>
+        /// <param name="userPattern"></param>
+        public void showReplay(List<Color> pattern, List<Color> userPattern)
+        {
+            Color[] colors =
+                {Data.greenColor, Data.redColor, Data.yellowColor, Data.blueColor};
+
+            // Change color to white
+            foreach (Button btn in new[] { greenBtn, redBtn, yelBtn, blueBtn })
+            {
+                btn.BackColor = Color.White;
+                btn.Update();
+            }
+
+            foreach (Color col in userPattern)
+            {
+                if (col == colors[0])  // Green button
+                {
+                    greenBtn.BackColor = colors[0];
+                    greenBtn.Update();
+                    Thread.Sleep(500);
+
+                    greenBtn.BackColor = Color.White;
+                    greenBtn.Update();
+                    Thread.Sleep(500);
+                }
+                else if (col == colors[1]) // Red button
+                {
+                    redBtn.BackColor = colors[1];
+                    redBtn.Update();
+                    Thread.Sleep(500);
+
+                    redBtn.BackColor = Color.White;
+                    redBtn.Update();
+                    Thread.Sleep(500);
+                }
+                else if (col == colors[2]) // Yellow button
+                {
+                    yelBtn.BackColor = colors[2];
+                    yelBtn.Update();
+                    Thread.Sleep(500);
+
+                    yelBtn.BackColor = Color.White;
+                    yelBtn.Update();
+                    Thread.Sleep(500);
+                }
+                else if (col == colors[3]) // Blue button
+                {
+                    blueBtn.BackColor = colors[3];
+                    blueBtn.Update();
+                    Thread.Sleep(500);
+
+                    blueBtn.BackColor = Color.White;
+                    blueBtn.Update();
+                    Thread.Sleep(500);
+                }
+
+            }
 
             // Restore Color
             greenBtn.BackColor = colors[0];

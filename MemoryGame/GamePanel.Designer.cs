@@ -33,6 +33,9 @@
             this.bestScore = new System.Windows.Forms.Label();
             this.score_number = new System.Windows.Forms.Label();
             this.bestScore_number = new System.Windows.Forms.Label();
+            this.title = new System.Windows.Forms.Label();
+            this.functionBtn = new System.Windows.Forms.Button();
+            this.replayBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // score
@@ -40,7 +43,7 @@
             this.score.AutoSize = true;
             this.score.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.score.Location = new System.Drawing.Point(67, 162);
+            this.score.Location = new System.Drawing.Point(86, 162);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(81, 25);
             this.score.TabIndex = 0;
@@ -62,7 +65,7 @@
             this.score_number.AutoSize = true;
             this.score_number.Font = new System.Drawing.Font("Century", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score_number.ForeColor = System.Drawing.Color.Purple;
-            this.score_number.Location = new System.Drawing.Point(154, 162);
+            this.score_number.Location = new System.Drawing.Point(173, 162);
             this.score_number.Name = "score_number";
             this.score_number.Size = new System.Drawing.Size(25, 25);
             this.score_number.TabIndex = 2;
@@ -73,11 +76,44 @@
             this.bestScore_number.AutoSize = true;
             this.bestScore_number.Font = new System.Drawing.Font("Century", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bestScore_number.ForeColor = System.Drawing.Color.Purple;
-            this.bestScore_number.Location = new System.Drawing.Point(179, 247);
+            this.bestScore_number.Location = new System.Drawing.Point(173, 247);
             this.bestScore_number.Name = "bestScore_number";
             this.bestScore_number.Size = new System.Drawing.Size(25, 25);
             this.bestScore_number.TabIndex = 3;
             this.bestScore_number.Text = "0";
+            // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Lucida Console", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.title.Location = new System.Drawing.Point(113, 87);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(121, 29);
+            this.title.TabIndex = 4;
+            this.title.Text = "Memory";
+            // 
+            // functionBtn
+            // 
+            this.functionBtn.Font = new System.Drawing.Font("Goudy Stout", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.functionBtn.Location = new System.Drawing.Point(77, 359);
+            this.functionBtn.Name = "functionBtn";
+            this.functionBtn.Size = new System.Drawing.Size(155, 43);
+            this.functionBtn.TabIndex = 5;
+            this.functionBtn.Text = "Start";
+            this.functionBtn.UseVisualStyleBackColor = true;
+            this.functionBtn.Click += new System.EventHandler(this.FunctionBtn_Click);
+            // 
+            // replayBtn
+            // 
+            this.replayBtn.Font = new System.Drawing.Font("Ideal Sans Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.replayBtn.Location = new System.Drawing.Point(104, 300);
+            this.replayBtn.Name = "replayBtn";
+            this.replayBtn.Size = new System.Drawing.Size(94, 41);
+            this.replayBtn.TabIndex = 6;
+            this.replayBtn.Text = "Replay";
+            this.replayBtn.UseVisualStyleBackColor = true;
+            this.replayBtn.Click += new System.EventHandler(this.ReplayBtn_Click);
             // 
             // GamePanel
             // 
@@ -85,6 +121,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
             this.ClientSize = new System.Drawing.Size(319, 446);
+            this.Controls.Add(this.replayBtn);
+            this.Controls.Add(this.functionBtn);
+            this.Controls.Add(this.title);
             this.Controls.Add(this.bestScore_number);
             this.Controls.Add(this.score_number);
             this.Controls.Add(this.bestScore);
@@ -108,5 +147,8 @@
         private System.Windows.Forms.Label bestScore;
         private System.Windows.Forms.Label score_number;
         private System.Windows.Forms.Label bestScore_number;
+        private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Button functionBtn;
+        private System.Windows.Forms.Button replayBtn;
     }
 }

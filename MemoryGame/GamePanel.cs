@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,14 +20,40 @@ namespace MemoryGame
 
         private void GamePanel_Load(object sender, EventArgs e)
         {
+            this.replayBtn.Hide();
             updateLocation();
         }
 
-
+        
+        // Update score display
         public void updateScoreDisplay()
         {
             this.score_number.Text = Data.score.ToString();
             this.bestScore_number.Text = Data.bestScore.ToString();
+        }
+
+        // Initialize components to start the game
+        public void startGame()
+        {
+            this.BackColor = Color.PaleGreen;
+
+            this.title.ForeColor = Color.MidnightBlue;
+            this.title.Text = "Memory";
+
+            this.functionBtn.Hide();
+            this.replayBtn.Hide();
+        }
+        // Initialize components to end the game
+        public void endGame()
+        {
+            this.BackColor = Color.LightCoral;
+
+            this.title.ForeColor = Color.Red;
+            this.title.Text = "Game Over!";
+
+            this.functionBtn.Text = "Play Again";
+            this.functionBtn.Show();
+            this.replayBtn.Show();
         }
 
 
@@ -66,6 +93,25 @@ namespace MemoryGame
 
             bestScore.Location = new Point(this.Width / 2 - 90, this.Height / 2);
             bestScore_number.Location = new Point(this.Width / 2 + 35, this.Height / 2);
+
+
+            this.title.Location = new Point(this.Width / 2 - 90, this.Height / 2 - 110);
+            this.functionBtn.Location = new Point(this.Width / 2 - 80, this.Height / 2 + 50);
+            this.replayBtn.Location = new Point(this.Width / 2 - 50, this.Height / 2 + 110);
+        }
+
+        private void FunctionBtn_Click(object sender, EventArgs e)
+        {
+            Functions func = new Functions();
+            func.startGame();
+            
+        }
+        private void ReplayBtn_Click(object sender, EventArgs e)
+        {
+            MainApp.gs.Invoke(new MethodInvoker(delegate ()
+            {
+                MainApp.gs.showReplay(Data.pattern, Data.userPattern);
+            }));
         }
     }
 }
